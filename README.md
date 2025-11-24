@@ -81,3 +81,11 @@ System.out.println("Total documents: " + stats.get("total_documents"));
 System.out.println("Total words: " + stats.get("total_words"));
 ```
 
+
+### 3. OCR支持
+
+OCR使用的PaddleOCR, 运行在java用的https://github.com/MyMonsterCat/RapidOcr-Java?tab=readme-ov-file
+
+不同操作系统需要引入不同依赖具体可查看他的文档，在windows编译是无法直接用于其他平台的，需要编译对应的平台版本
+
+当前使用的是CPU版本 若需要GPU可查看对应文档编译
