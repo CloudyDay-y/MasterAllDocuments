@@ -1,0 +1,29 @@
+{
+  "ocr": {
+    "enabled": true,
+    "serviceUrl": "",
+    "timeout": 30000,
+    "maxRetries": 3
+  },
+  "indexing": {
+    "enableOcr": true,
+    "supported_image_extensions": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".tiff",
+      ".webp"
+    ],
+    "supported_document_extensions": [
+      ".docx",
+      ".doc",
+      ".pdf",
+      ".pptx",
+      ".ppt"
+    ],
+    "max_file_size_mb": 50,
+    "pdf_rendering_dpi": 300
+  }
+}
