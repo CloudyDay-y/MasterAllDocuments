@@ -22,6 +22,8 @@
 
 ### 1. 编译项目
 
+JDK版本1.8
+
 ```bash
 cd MasterAllDocuments
 mvn clean package
