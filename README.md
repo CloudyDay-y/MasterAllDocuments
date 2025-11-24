@@ -63,7 +63,7 @@ builder.addDocument("/path/to/new_file.txt", false);
 builder.save();
 
 // 3. 搜索
-Searcher searcher = new Searcher("./my_index");
+LuceneIndexBuilder searcher = new LuceneIndexBuilder("./my_index");
 
 // 关键词搜索
 List<SearchResult> results = searcher.search("algorithm", 10);
