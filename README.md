@@ -30,7 +30,7 @@ JDK版本1.8
 <dependency>
     <groupId>io.github.cloudyday-y</groupId>
     <artifactId>master-all-documents</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 
 //如果需要ocr支持，还需要添加：
