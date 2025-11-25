@@ -7,7 +7,7 @@
     <!-- 必须与 Maven Central Namespace 一致 -->
     <groupId>io.github.cloudyday-y</groupId>
     <artifactId>master-all-documents</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>MasterAllDocuments</name>
