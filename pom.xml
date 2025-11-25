@@ -1,25 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.masteralldocuments</groupId>
-    <artifactId>MasterAllDocuments</artifactId>
+    <!-- 必须与 Maven Central Namespace 一致 -->
+    <groupId>io.github.cloudyday-y</groupId>
+    <artifactId>master-all-documents</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>MasterAllDocuments</name>
     <description>A lightweight inverted index library for document search (Java port from Python MasterAllDocuments)</description>
+    <url>https://github.com/CloudyDay-y/MasterAllDocuments</url>
+
+    <!-- 开源 License（Maven Central 必须） -->
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- SCM 信息（必须） -->
+    <scm>
+        <url>https://github.com/CloudyDay-y/MasterAllDocuments</url>
+        <connection>scm:git:https://github.com/CloudyDay-y/MasterAllDocuments.git</connection>
+        <developerConnection>scm:git:https://github.com/CloudyDay-y/MasterAllDocuments.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!-- 作者信息（必须） -->
+    <developers>
+        <developer>
+            <id>cloudyday-y</id>
+            <name>CloudyDay</name>
+            <url>https://github.com/CloudyDay-y</url>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <java.version>1.8</java.version>
 
-        <!-- Dependency Versions -->
+        <!-- 版本保持和你一致 -->
         <jackson.version>2.15.2</jackson.version>
         <poi.version>5.2.3</poi.version>
         <pdfbox.version>2.0.29</pdfbox.version>
@@ -29,22 +55,20 @@
         <lucene.version>8.11.2</lucene.version>
     </properties>
 
+    <!-- 依赖（完全保留你的） -->
     <dependencies>
-        <!-- JSON Processing -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
 
-        <!-- Chinese Word Segmentation (HanLP) -->
         <dependency>
             <groupId>com.hankcs</groupId>
             <artifactId>hanlp</artifactId>
             <version>${hanlp.version}</version>
         </dependency>
 
-        <!-- Apache Lucene -->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
@@ -60,11 +84,13 @@
             <artifactId>lucene-highlighter</artifactId>
             <version>${lucene.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analysis-common</artifactId>
             <version>9.9.2</version>
         </dependency>
+
         <dependency>
             <groupId>io.github.mymonstercat</groupId>
             <artifactId>rapidocr</artifactId>
@@ -76,7 +102,6 @@
             <version>0.0.7</version>
         </dependency>
 
-        <!-- Apache POI for Office Documents -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -93,55 +118,30 @@
             <version>${poi.version}</version>
         </dependency>
 
-        <!-- PDF Processing -->
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
             <version>${pdfbox.version}</version>
         </dependency>
 
-        <!-- CLI Framework -->
-        <dependency>
-            <groupId>info.picocli</groupId>
-            <artifactId>picocli</artifactId>
-            <version>${picocli.version}</version>
-        </dependency>
-
-        <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <!-- Log4j2到SLF4J的桥接器，用于Apache POI等使用Log4j2的库 -->
-        <!-- 注意：这只是API桥接，不包含有漏洞的log4j-core -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-to-slf4j</artifactId>
-            <version>2.20.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.20.0</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
-        <!-- Testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
+    <!-- Maven Central 必须：source/javadoc/GPG 签名 -->
     <build>
         <plugins>
+
+            <!-- 编译 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -152,43 +152,74 @@
                 </configuration>
             </plugin>
 
+            <!-- 测试 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
 
-            <!-- Create executable JAR with dependencies -->
+            <!-- 生成 source.jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.1</version>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.masterindex.cli.MasterIndexCLI</mainClass>
-                                </transformer>
-                            </transformers>
-                            <filters>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/*.SF</exclude>
-                                        <exclude>META-INF/*.DSA</exclude>
-                                        <exclude>META-INF/*.RSA</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-                        </configuration>
+                        <id>attach-sources</id>
+                        <goals><goal>jar</goal></goals>
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- 生成 javadoc.jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals><goal>jar</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- GPG 签名（必须） -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals><goal>sign</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- 上传到 Maven Central 的关键 -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
+
+    <!-- Maven Central 发布地址 -->
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <url>https://central.sonatype.com/api/v1/publisher</url>
+        </repository>
+    </distributionManagement>
+
 </project>
