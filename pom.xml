@@ -24,9 +24,7 @@
         <poi.version>5.2.3</poi.version>
         <pdfbox.version>2.0.29</pdfbox.version>
         <hanlp.version>portable-1.8.4</hanlp.version>
-        <picocli.version>4.7.5</picocli.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <logback.version>1.2.12</logback.version>
         <junit.version>5.9.3</junit.version>
         <lucene.version>8.11.2</lucene.version>
     </properties>
