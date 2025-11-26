@@ -363,6 +363,7 @@ public class LuceneIndexBuilder implements AutoCloseable {
      */
     public void save() throws IOException {
         commit();
+        close();
     }
 
     /**
